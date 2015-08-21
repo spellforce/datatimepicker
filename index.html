@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="css/spellforce.datetimepicker.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/spellforce.datetimepicker.js"></script>
+<span class="demoSpan1">
+</span>
+<input type="text" value="2015-02-15 21:05" id="datetimepicker" readonly>
+<div>
+<input value="2015-02-14 14:45"  id="datetimepicker2" class="am-form-field" readonly>
+<span class="add-on"><i id="datetimepicker2_icon"></i></span>
+</div>
+<script>
+    $('#datetimepicker').datetimepicker({
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd hh:ii',
+        weekStart:1,
+        autoclose:true,
+        todayBtn:true,
+        todayHighlight:true,
+        keyboardNavigation:true,
+        pickerPosition:'bottom-right',   //'bottom-right' (默认)'bottom-left','top-right','top-left'
+    });
+    $('#datetimepicker2').datetimepicker();
+    $('#datetimepicker2_icon').click(function(){
+        $('#datetimepicker2').datetimepicker('show');
+    })
+</script>
