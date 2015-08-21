@@ -1,11 +1,47 @@
-# Amaze UI Datetime Picker
+# Spellforce Datetime Picker
 ---
 
-该项目来自 [bootstrap-datetimepicker](https://github.com/smalot/bootstrap-datetimepicker)，只修改了 `CSS` 文件，使用需要结合原来的的 `class` 和 Amaze UI 使用。
+该项目修改自 [bootstrap-datetimepicker](https://github.com/smalot/bootstrap-datetimepicker)。优化中文显示格式，中文语言已内嵌，不需要结合，单独使用
 
 ## [使用演示](http://amazeui.github.io/datetimepicker/docs/demo.html)
 
 ## 调用方法
+
+**初始调用**
+
+```html
+<link rel="stylesheet" href="css/spellforce.datetimepicker.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/spellforce.datetimepicker.js"></script>
+```
+**单独使用**
+
+```html
+<input type="text" value="2015-02-15 21:05" id="datetimepicker" readonly>
+```
+```javascript
+$('#datetimepicker').datetimepicker({
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd hh:ii',
+        weekStart:1,
+        autoclose:true,
+        todayBtn:true,
+        todayHighlight:true,
+        keyboardNavigation:true,
+        pickerPosition:'bottom-right',   //'bottom-right' (默认)'bottom-left','top-right','top-left'
+});
+```
+**联合使用**
+```html
+<input value="2015-02-14 14:45"  id="datetimepicker" class="am-form-field" readonly>
+<span class="add-on"><i id="datetimepicker_icon"></i></span>
+```
+```javascript
+$('#datetimepicker').datetimepicker();
+$('#datetimepicker_icon').click(function(){
+      $('#datetimepicker2').datetimepicker('show');
+});
+```
 
 **设置时间格式：`format` 选项**
 
@@ -22,29 +58,6 @@ $('#datetimepicker').datetimepicker({
 
 ```html
 <input type="text" value="2015-02-14 21:05" id="datetimepicker" data-date-format="yyyy-mm-dd hh:ii">
-```
-```javascript
-$('#datetimepicker').datetimepicker();
-```
-
-**结合 Amaze UI 组件**
-
-结合 Amaze UI Class `.am-input-group` 来实现组件样式，其中 Class `.date`、`.add-on`、`.icon-th` 都在原 JS 中有引用，使用时务必加上。
-
-```html
-<div class="am-input-group date" id="datetimepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-  <input size="16" type="text" value="2015-02-14 14:45" class="am-form-field" readonly>
-  <span class="am-input-group-label add-on"><i class="icon-th am-icon-calendar"></i></span>
-</div>
-```
-```javascript
-$('#datetimepicker').datetimepicker();
-```
-
-**内联调用：**
-
-```html
-<div id="datetimepicker"></div>
 ```
 ```javascript
 $('#datetimepicker').datetimepicker();
@@ -70,7 +83,7 @@ npm install
 gulp serve
 ```
 
-## 插件配置
+## 属性
 
 所有的配置参数都是对 `Date` 对象的处理，按照 ISO-8601 日期和时间的表示方法，设置你的时间格式 `format` :
 
@@ -184,11 +197,6 @@ ss(秒), ii(分), hh(小时), HH(小时), dd(天), mm(月),代表不足两位数
 
 设置分钟视图时间间隔数，默认为 `5`。
 
-
-### pickerReferer : （弃用）
-
-指定输入的 `<input>` 元素，默认为 `default`。
-
 ### pickerPosition
 
 设置选择器的定位方式，接受 `String` 类型：
@@ -229,25 +237,6 @@ $('#date-end')
       return date.valueOf() < now.valueOf() ? 'disabled' : '';
     }
   });
-```
-
-**组件结合**
-
-```html
-<div class="am-input-group date form_datetime-1">
-  <input size="16" type="text" value="2015-02-14 14:45" class="am-form-field" readonly>
-  <span class="am-input-group-label add-on"><i class="icon-th am-icon-calendar"></i></span>
-</div>
-```
-
-**带有删除的组件结合**
-
-```html
-<div class="am-input-group date form_datetime-3" data-date="2015-02-14 14:45">
-  <input size="16" type="text" value="" class="am-form-field" readonly>
-  <span class="add-on am-input-group-label"><i class="icon-remove am-icon-close"></i></span>
-  <span class="add-on am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
-</div>
 ```
 
 ## 方法
@@ -439,7 +428,7 @@ $('#date-end')
 
 支持鼠标滚轮控制器的[Demo](http://lyonlai.github.io/bootstrap-datetimepicker/demo.html)
 
-## I18N 国际化
+## I18N 国际化(中文已经内嵌)
 
 扩展语言支持, [其他语言扩展示例Demo](https://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales)
 
