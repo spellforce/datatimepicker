@@ -153,7 +153,7 @@ ss(秒), ii(分), hh(小时), HH(小时), dd(天), mm(月),代表不足两位数
 - `3` 或者 `year`: 显示月
 - `4` 或者 `decade`: 显示年
 
-### minView
+### minView (最小显示到哪个面板)
 
 最小视图模式，可以接受 `Number` | `String` 类型：
 
@@ -163,7 +163,7 @@ ss(秒), ii(分), hh(小时), HH(小时), dd(天), mm(月),代表不足两位数
 - `3` 或者 `year`: 显示月
 - `4` 或者 `decade`: 显示年
 
-### maxView
+### maxView (最大显示到哪个面板)
 
 最大视图模式，可以接受 `Number` | `String` 类型：
 
